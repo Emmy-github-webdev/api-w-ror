@@ -54,6 +54,10 @@ To get a local copy up and running follow these simple example steps.
 - rails g rspec:install
 - Run rspec command and confirm rspec works
 
+> Generate Article model
+- rails g model article title:string content:text slug:string
+- rails db:migrate
+
 ### Install
 
 ### Usage
