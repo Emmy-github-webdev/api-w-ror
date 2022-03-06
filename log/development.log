@@ -103,3 +103,38 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 147ms (Views: 139.1ms | ActiveRecord: 71.9ms | Allocations: 4430)
 
 
+Started GET "/articles" for 127.0.0.1 at 2022-03-06 23:34:54 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/articles_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (7.07ms)
+Completed 200 OK in 91ms (Views: 35.1ms | ActiveRecord: 7.4ms | Allocations: 20408)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-03-06 23:34:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "article-title-1"], ["LIMIT", 1]]
+  [1m[36mArticle Create (31.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Article title 1"], ["content", "Article title 1 content"], ["slug", "article-title-1"], ["created_at", "2022-03-06 22:40:10.076499"], ["updated_at", "2022-03-06 22:40:10.076499"]]
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "article-title-2"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Article title 2"], ["content", "Article title 2 content"], ["slug", "article-title-2"], ["created_at", "2022-03-06 22:40:10.143394"], ["updated_at", "2022-03-06 22:40:10.143394"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "article-title-3"], ["LIMIT", 1]]
+  [1m[36mArticle Create (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Article title 3"], ["content", "Article title 3 content"], ["slug", "article-title-3"], ["created_at", "2022-03-06 22:40:10.163799"], ["updated_at", "2022-03-06 22:40:10.163799"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Count (58.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+Started GET "/articles" for 127.0.0.1 at 2022-03-06 23:41:00 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (4.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/articles_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (87.08ms)
+Completed 200 OK in 444ms (Views: 330.4ms | ActiveRecord: 47.2ms | Allocations: 14225)
+
+
