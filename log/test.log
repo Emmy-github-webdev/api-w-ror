@@ -194,3 +194,83 @@ Processing by ArticlesController#index as HTML
   [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
 Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 299)
   [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Completed 200 OK in 10ms (Views: 2.6ms | ActiveRecord: 1.3ms | Allocations: 1597)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "MyString"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["content", "MyText"], ["slug", "MyString"], ["created_at", "2022-03-06 20:29:33.799845"], ["updated_at", "2022-03-06 20:29:33.799845"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "MyString"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 1.7ms | Allocations: 1597)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-1"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 1"], ["content", "My awesome article content 1"], ["slug", "My-awesome-article-1"], ["created_at", "2022-03-06 20:35:39.805467"], ["updated_at", "2022-03-06 20:35:39.805467"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-2"], ["LIMIT", 1]]
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 2"], ["content", "My awesome article content 2"], ["slug", "My-awesome-article-2"], ["created_at", "2022-03-06 20:35:39.815953"], ["updated_at", "2022-03-06 20:35:39.815953"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.8ms | Allocations: 566)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (3.15ms)
+Completed 200 OK in 41ms (Views: 30.9ms | ActiveRecord: 1.4ms | Allocations: 5454)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-1"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 1"], ["content", "My awesome article content 1"], ["slug", "My-awesome-article-1"], ["created_at", "2022-03-06 21:00:41.277807"], ["updated_at", "2022-03-06 21:00:41.277807"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-2"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 2"], ["content", "My awesome article content 2"], ["slug", "My-awesome-article-2"], ["created_at", "2022-03-06 21:00:41.291790"], ["updated_at", "2022-03-06 21:00:41.291790"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (10.51ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 1.0ms | Allocations: 2508)
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (1.96ms)
+Completed 200 OK in 24ms (Views: 16.5ms | ActiveRecord: 1.4ms | Allocations: 4092)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-1"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 1"], ["content", "My awesome article content 1"], ["slug", "My-awesome-article-1"], ["created_at", "2022-03-06 21:01:28.060359"], ["updated_at", "2022-03-06 21:01:28.060359"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."slug" = $1 LIMIT $2[0m  [["slug", "My-awesome-article-2"], ["LIMIT", 1]]
+  [1m[36mArticle Create (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "slug", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "My awesome article 2"], ["content", "My awesome article content 2"], ["slug", "My-awesome-article-2"], ["created_at", "2022-03-06 21:01:28.072985"], ["updated_at", "2022-03-06 21:01:28.072985"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (5.23ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 1.1ms | Allocations: 2121)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m

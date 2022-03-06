@@ -57,6 +57,12 @@ To get a local copy up and running follow these simple example steps.
 > Generate Article model
 - rails g model article title:string content:text slug:string
 - rails db:migrate
+> [Active model serializers](https://github.com/rails-api/active_model_serializers)
+- Active model serializers is used to convert model to json
+- Add gem 'active_model_serializers', '~> 0.10.0' to Gemfile
+- bundle install
+- create serializer - rails g serializer article title content slug
+- Add active_model_serializers.rb to initializers in config folder
 
 ### Install
 
