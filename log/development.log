@@ -91,3 +91,15 @@ puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.2) lib/puma/server.rb:441:in `process_client'
 puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/articles" for 127.0.0.1 at 2022-03-06 20:59:21 +0100
+Processing by ArticlesController#index as HTML
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 251)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-03-06 21:25:51 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (52.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:4:in `index'
+Completed 200 OK in 147ms (Views: 139.1ms | ActiveRecord: 71.9ms | Allocations: 4430)
+
+
