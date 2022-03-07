@@ -138,3 +138,13 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 444ms (Views: 330.4ms | ActiveRecord: 47.2ms | Allocations: 14225)
 
 
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8155716247210493745)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (42.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220307085109)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (334.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "login" character varying NOT NULL, "name" character varying, "url" character varying, "avatar_url" character varying, "provider" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220307085109"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (48.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8155716247210493745)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

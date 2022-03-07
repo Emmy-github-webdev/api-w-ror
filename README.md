@@ -64,6 +64,10 @@ To get a local copy up and running follow these simple example steps.
 - create serializer - rails g serializer article title content slug
 - Add active_model_serializers.rb to initializers in config folder
 
+> [Octokit](https://github.com/octokit/octokit.rb)
+- Octokit is a Ruby toolkit for the GitHub API
+- Add gem "octokit", "~> 4.0" to the Gemfile
+
 ### Install
 
 ### Usage
