@@ -2,7 +2,7 @@ class UserAuthenticator
 
   class AuthenticationError < StandardError; end
 
-  attr_reader :user
+  attr_reader :user, :access_token
 
   def initialize(code)
     @code = code
@@ -13,6 +13,11 @@ class UserAuthenticator
       raise AuthenticationError
     else
       prepare_user
+      @access_token = if user.access_token.present?
+        user.access_token
+      else
+        user.create_access_token
+      end
     end
   end
   
