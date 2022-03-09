@@ -8,26 +8,43 @@ class UserAuthenticator
     @code = code
   end
 
-  def perform
-    client = Octokit::Client.new(
-      client_id: ENV['GITHUB_CLIENT_ID'],
-      client_secret: ENV['GITHUB_CLIENT_SECRET']
-    )
-    token = client.exchange_code_for_token(code)
-    
+  def perform    
     if token.try(:error).present?
       raise AuthenticationError
     else
-      user_client = Octokit::Client.new(
-        access_token: token
-      )
-      user_data = user_client.user.to_h.
-      slice(:login, :avatar, :url, :name)
-      User.create(user_data.merge(provider: 'github'))
+      prepare_user
     end
   end
   
   private
+
+  def client
+    @client ||= Octokit::Client.new(
+      client_id: ENV['GITHUB_CLIENT_ID'],
+      client_secret: ENV['GITHUB_CLIENT_SECRET']
+    )
+  end
+
+  def token
+    @token ||= client.exchange_code_for_token(code)
+  end
+  
+  def user_data
+    @user_data ||= Octokit::Client.new(
+      access_token: token
+    ).user.to_h.slice(:login, :avatar, :url, :name)
+  end
+
+  def prepare_user
+    @user = if User.exists?(login: user_data[:login])
+      User.find_by(login: user_data[:login])
+    else
+      User.create(user_data.merge(provider: 'github'))
+    end
+  end
+  
+  
+  
 
   attr_reader :code
 
