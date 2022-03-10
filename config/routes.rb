@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  post 'login', to: 'access_tokens#create'
   resources :articles, only: [:index, :show]
 end
