@@ -1,6 +1,6 @@
 class AccessTokensController < ApplicationController
   def create
-    
-  end
-  
+    authenticator = UserAuthenticator.new(params[:code])
+    authenticator.perform
+  end  
 end
